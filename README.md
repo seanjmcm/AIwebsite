@@ -1,20 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Most Marvellous Company Website
 
-# Run and deploy your AI Studio app
+This is a clean, professional website built with plain HTML, CSS, and JavaScript.
 
-This contains everything you need to run your app locally.
+## How to View
+1.  **Extract the zip**: Make sure all files are in the same folder.
+2.  **Open index.html**: Simply double-click the `index.html` file in your browser.
+3.  **No Server Needed**: This new version is optimized to work directly from your file system.
 
-View your app in AI Studio: https://ai.studio/apps/3c01e5ac-24e7-4c94-9425-9f53f20bad70
+## Features
+- **High Design**: Futuristic PropTech aesthetic.
+- **Responsive**: Optimised for Desktop and Mobile.
+- **Zero Dependencies**: Works instantly without Node.js or complex setup.
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Files
+- `index.html` - The full website and logic.
+- `horizon.png` - Hero visual.
+- `team.png` - Team visual.

@@ -1,13 +1,386 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Most Marvellous Company | Applied AI & Machine Learning</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Marvellous Company | Real Estate Agentic Agents</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'app-bg': '#0a0a0c',
+                        'app-surface': '#121214',
+                        'app-border': '#1e1e22',
+                        'app-text': '#f4f4f5',
+                        'app-muted': '#71717a',
+                        'app-label': '#a1a1aa',
+                        'accent': '#c5a059',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .clip-path-logo {
+            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        }
+    </style>
+</head>
+<body class="bg-app-bg text-app-text antialiased selection:bg-accent/30">
 
+    <!-- Navigation -->
+    <nav class="bg-app-surface/90 backdrop-blur-md fixed w-full z-50 top-0 border-b border-app-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center space-x-3 group cursor-pointer">
+                    <div class="w-8 h-8 bg-accent clip-path-logo shadow-[0_0_15px_rgba(197,160,89,0.3)] group-hover:shadow-accent/50 transition-all duration-500"></div>
+                    <span class="font-bold text-lg text-white tracking-[0.2em] uppercase">Most Marvellous</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-app-muted hover:text-accent font-medium text-[10px] uppercase tracking-widest transition">Intelligence</a>
+                    <a href="#expertise" class="text-app-muted hover:text-accent font-medium text-[10px] uppercase tracking-widest transition">Capabilities</a>
+                    <a href="#sectors" class="text-app-muted hover:text-accent font-medium text-[10px] uppercase tracking-widest transition">Use Cases</a>
+                    <a href="#architectures" class="text-app-muted hover:text-accent font-medium text-[10px] uppercase tracking-widest transition">Architectures</a>
+                    <a href="#personnel" class="text-app-muted hover:text-accent font-medium text-[10px] uppercase tracking-widest transition">Personnel</a>
+                    <a href="#contact" class="text-app-muted hover:text-accent font-medium text-[10px] uppercase tracking-widest transition">Connection</a>
+                </div>
+                <div class="hidden md:flex">
+                    <a href="#contact" class="border border-accent text-accent px-6 py-2.5 rounded-none text-[10px] uppercase tracking-[2px] font-bold hover:bg-accent hover:text-app-bg transition-colors duration-300">
+                        Deploy Lab
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-app-bg z-10"></div>
+            <img src="horizon.png" alt="PropTech Intelligence" class="w-full h-full object-cover opacity-70 filter contrast-125 brightness-95 grayscale-[0.05] saturate-[1.1]">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow pointer-events-none"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <div class="text-accent text-[11px] font-semibold tracking-[4px] uppercase mb-6 flex items-center">
+                    <span class="w-12 h-[1px] bg-accent mr-4"></span>
+                    Applied Artificial Intelligence
+                </div>
+                <h1 class="text-5xl md:text-8xl font-light text-white leading-[1.1] mb-8 tracking-[-0.04em]">
+                    Real Estate <b class="font-bold text-accent italic">Agentic Agents</b>.
+                </h1>
+                <p class="text-lg md:text-xl text-app-label mb-12 max-w-xl leading-relaxed font-light">
+                    Empowering estate agents with neural networks and autonomous AI. We improve lives by streamlining property sales while accelerating the bottom line for modern enterprises.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#expertise" class="border border-accent bg-accent text-app-bg px-10 py-4 rounded-none font-bold text-[11px] uppercase tracking-[2px] hover:bg-transparent hover:text-accent transition-all duration-500 shadow-[0_0_30px_rgba(197,160,89,0.15)] flex items-center justify-center">
+                        Access Labs
+                        <i data-lucide="arrow-right" class="ml-3 w-4 h-4"></i>
+                    </a>
+                    <a href="#contact" class="border border-app-border text-white px-10 py-4 rounded-none font-bold text-[11px] uppercase tracking-[2px] hover:bg-app-border transition-all duration-500 text-center">
+                        Request Protocol
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="expertise" class="py-32 bg-app-surface border-y border-app-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
+                <div class="max-w-2xl">
+                    <span class="text-app-muted text-[10px] tracking-[5px] uppercase mb-4 block">Deployment Ready</span>
+                    <h2 class="text-4xl font-bold text-white tracking-tight">Real Estate Foundations.</h2>
+                    <p class="mt-6 text-app-label text-lg font-light">
+                        Our infrastructure is optimized for property-centric intelligence and long-term corporate profitability.
+                    </p>
+                </div>
+                <div class="text-accent font-mono text-[11px] tracking-widest hidden lg:block uppercase">
+                    // ACTIVE_STATUS: OPTIMIZED
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-app-border border border-app-border overflow-hidden">
+                <!-- Card 1 -->
+                <div class="bg-app-surface p-12 hover:bg-app-surface/30 transition-all duration-500 group relative overflow-hidden h-full flex flex-col">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity duration-1000">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="" class="w-full h-full object-cover filter grayscale">
+                    </div>
+                    <div class="relative z-10 flex-grow">
+                        <div class="text-accent group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100 mb-10">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-[2px]">TensorFlow Core</h3>
+                        <p class="text-app-label text-sm leading-relaxed font-light">Custom multilayer neural networks designed for ultra-low latency prediction.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-app-surface p-12 hover:bg-app-surface/30 transition-all duration-500 group relative overflow-hidden h-full flex flex-col">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity duration-1000">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80" alt="" class="w-full h-full object-cover filter grayscale">
+                    </div>
+                    <div class="relative z-10 flex-grow">
+                        <div class="text-accent group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100 mb-10">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-[2px]">Cognitive Harmony</h3>
+                        <p class="text-app-label text-sm leading-relaxed font-light">Orchestrating human-AI systems designed to augment intuition and emotional connection.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-app-surface p-12 hover:bg-app-surface/30 transition-all duration-500 group relative overflow-hidden h-full flex flex-col">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity duration-1000">
+                        <img src="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&fit=crop&w=800&q=80" alt="" class="w-full h-full object-cover filter grayscale">
+                    </div>
+                    <div class="relative z-10 flex-grow">
+                        <div class="text-accent group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100 mb-10">
+                            <i data-lucide="eye" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-[2px]">Semantic Vision</h3>
+                        <p class="text-app-label text-sm leading-relaxed font-light">Real-time multi-object detection and semantic segmentation at the edge.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-app-surface p-12 hover:bg-app-surface/30 transition-all duration-500 group relative overflow-hidden h-full flex flex-col">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity duration-1000">
+                        <img src="https://images.unsplash.com/photo-1451187530220-4e2a1a445d33?auto=format&fit=crop&w=800&q=80" alt="" class="w-full h-full object-cover filter grayscale">
+                    </div>
+                    <div class="relative z-10 flex-grow">
+                        <div class="text-accent group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100 mb-10">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-[2px]">MLOps / CICD</h3>
+                        <p class="text-app-label text-sm leading-relaxed font-light">Automated model lifecycle management and continuous weight optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="sectors" class="py-32 bg-app-bg overflow-hidden border-b border-app-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24">
+                <span class="text-accent text-[10px] tracking-[5px] uppercase mb-4 block">Applied Contexts</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Real-World <b class="text-accent italic">Impact.</b></h2>
+                <p class="mt-6 text-app-label text-lg font-light max-w-2xl mx-auto">
+                    We specialize in high-stakes environments where precision isn't just a goal—it's the only option.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Market Intelligence -->
+                <div class="bg-app-surface p-12 border border-app-border group hover:border-accent/30 transition-all duration-500">
+                    <div class="flex items-start justify-between mb-10">
+                        <div class="p-4 bg-app-bg border border-app-border text-accent group-hover:bg-accent group-hover:text-app-bg transition-colors duration-500">
+                            <i data-lucide="scale" class="w-8 h-8"></i>
+                        </div>
+                        <div class="text-[10px] text-app-muted font-mono tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">DOMAIN: LEGAL_TECH</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Market Intelligence</h3>
+                    <p class="text-app-label leading-relaxed mb-8 font-light">
+                        Predictive analytics for commercial and residential sectors. Our neural networks analyze thousands of data points to forecast market trends and optimize property yields for institutional investors.
+                    </p>
+                    <ul class="space-y-3 text-sm text-app-muted border-t border-app-border pt-8">
+                        <li class="flex items-center space-x-3 italic">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-accent"></i>
+                            <span>Document Anomaly Detection</span>
+                        </li>
+                        <li class="flex items-center space-x-3 italic">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-accent"></i>
+                            <span>Strategic Litigation Support</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Agent Empowerment -->
+                <div class="bg-app-surface p-12 border border-app-border group hover:border-accent/30 transition-all duration-500">
+                    <div class="flex items-start justify-between mb-10">
+                        <div class="p-4 bg-app-bg border border-app-border text-accent group-hover:bg-accent group-hover:text-app-bg transition-colors duration-500">
+                            <i data-lucide="home" class="w-8 h-8"></i>
+                        </div>
+                        <div class="text-[10px] text-app-muted font-mono tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">DOMAIN: PROP_TECH</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Agent Empowerment</h3>
+                    <p class="text-app-label leading-relaxed mb-8 font-light">
+                        Improving the professional lives of estate agents by automating lead qualification and scheduling. Our AI agents handle the noise so agents can focus on closing properties and driving the bottom line.
+                    </p>
+                    <ul class="space-y-3 text-sm text-app-muted border-t border-app-border pt-8">
+                        <li class="flex items-center space-x-3 italic">
+                            <i data-lucide="zap" class="w-4 h-4 text-accent"></i>
+                            <span>Neural Valuation Models</span>
+                        </li>
+                        <li class="flex items-center space-x-3 italic">
+                            <i data-lucide="users" class="w-4 h-4 text-accent"></i>
+                            <span>Autonomous Tenant Screeners</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personnel Section -->
+    <section id="personnel" class="py-32 bg-app-surface border-b border-app-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-20 items-center">
+                <div class="lg:w-1/2">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-accent/20 rounded-none blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
+                        <div class="relative border border-app-border overflow-hidden bg-app-bg">
+                            <img src="team.png" alt="PropTech Team" class="w-full h-[500px] object-cover filter grayscale contrast-125 opacity-90 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-app-bg/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 flex items-center space-x-3">
+                                <div class="w-1.5 h-1.5 bg-accent rounded-full animate-ping"></div>
+                                <span class="text-[10px] text-accent font-mono tracking-[3px] uppercase">Active Session: Neural Sync</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <span class="text-app-muted text-[10px] tracking-[5px] uppercase mb-4 block">The Collective</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-8">Dynamic <b class="text-accent italic">Personnel.</b></h2>
+                    <p class="text-lg text-app-label leading-relaxed font-light mb-10 italic border-l border-accent/30 pl-8">
+                        "Our strength lies in the emergent cognitive synergy of our human-AI interfaces. We don't just build models; we collaborate with them to redefine the boundaries of applied intelligence."
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 text-app-muted font-mono text-[10px] tracking-widest uppercase">
+                        <div class="space-y-2">
+                            <div class="text-white">// TEAM_DENSITY</div>
+                            <div>HIGH_FLUIDITY</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-white">// FOCUS_AREA</div>
+                            <div>NEURAL_DYNAMICS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location" class="py-32 bg-app-bg border-b border-app-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div class="lg:col-span-1 space-y-10">
+                    <div>
+                        <span class="text-accent text-[10px] tracking-[5px] uppercase mb-4 block animate-pulse">Station Detected</span>
+                        <h2 class="text-4xl font-bold text-white tracking-tight mb-6">Innovation <b class="text-accent italic">Hub.</b></h2>
+                        <div class="h-1 bg-app-border w-24"></div>
+                    </div>
+                    <div class="space-y-6 font-light">
+                        <div>
+                            <h4 class="text-white font-bold text-[10px] tracking-widest uppercase mb-3 opacity-40 font-mono">// PHYSICAL_LOCUS</h4>
+                            <p class="text-app-label leading-relaxed">
+                                Ash Ridge Green,<br>
+                                Enniskerry, Co. Wicklow<br>
+                                A98 Irish Innovation Sector
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 relative">
+                    <div class="bg-app-surface p-1 border border-app-border shadow-2xl">
+                        <div class="w-full h-[450px] grayscale invert contrast-[1.1] opacity-30">
+                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://maps.google.com/maps?width=100%25&height=450&hl=en&q=Ash%20Ridge%20Green,%20Enniskerry,%20Co.%20Wicklow&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-24 h-24 border-t border-r border-accent opacity-30"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-app-bg border-t border-app-border py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div>
+                    <span class="text-accent text-[10px] tracking-[5px] uppercase mb-4 block">Protocols</span>
+                    <h2 class="text-4xl font-bold text-white tracking-tight mb-8">Establish <b class="text-accent italic">Connection.</b></h2>
+                    <p class="text-lg text-app-label leading-relaxed font-light mb-12">
+                        Have a specialized request? Our labs are open for collaboration on enterprise-grade AI architectures and neural deployments.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 border border-app-border text-accent">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] text-app-muted uppercase tracking-widest font-mono">Neural Mail</h4>
+                            <a href="mailto:contact@mostmarv.com" class="text-white hover:text-accent transition-colors">contact@mostmarv.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-app-surface p-8 lg:p-12 border border-app-border">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-[10px] text-app-muted uppercase tracking-[2px] font-mono">Personnel Name</label>
+                                <input type="text" required placeholder="Identify yourself" class="w-full bg-app-bg border border-app-border focus:border-accent p-4 text-white font-light outline-none">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] text-app-muted uppercase tracking-[2px] font-mono">Neural Address</label>
+                                <input type="email" required placeholder="email@provider.com" class="w-full bg-app-bg border border-app-border focus:border-accent p-4 text-white font-light outline-none">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] text-app-muted uppercase tracking-[2px] font-mono">Data Payload</label>
+                            <textarea required rows="5" placeholder="Detail your requirements..." class="w-full bg-app-bg border border-app-border focus:border-accent p-4 text-white font-light outline-none resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full border border-accent text-accent py-4 uppercase text-[10px] tracking-[3px] font-bold hover:bg-accent hover:text-app-bg transition-all duration-300 flex items-center justify-center space-x-3 group">
+                            <span>Execute Transmission</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-24 pt-8 border-t border-app-border flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-6 text-[11px] font-bold text-app-muted tracking-[2px] uppercase">
+                    <div class="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#c5a059]"></div>
+                    <span>System Status: Optimizing Yields</span>
+                </div>
+                <span class="text-[9px] text-app-muted uppercase tracking-[3px]">Ash Ridge Green, Enniskerry // &copy; 2026 Most Marvellous Co.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Simple form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>Syncing...</span>';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Transmission Received. The lab will process your data payload shortly.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                e.target.reset();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
