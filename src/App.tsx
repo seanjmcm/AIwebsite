@@ -1,6 +1,5 @@
 // Build Trigger: Automated Production Deploy for mostmarv.com
 import React, { useState, useEffect } from "react";
-import { GoogleGenAI } from "@google/genai";
 import { 
   Cpu, 
   Users, 
@@ -611,33 +610,15 @@ export default function App() {
 function CapabilityCard({ icon, title, description, image }: { icon: React.ReactNode, title: string, description: string, image: string }) {
   const [isGenerating, setIsGenerating] = React.useState(false);
 
-  const handleRegenerate = async (e: React.MouseEvent) => {
+  const handleRegenerate = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
-    const apiKey = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
-    
-    if (!apiKey) {
-      console.warn("GEMINI_API_KEY not found. Falling back to simulation.");
-      setIsGenerating(true);
-      setTimeout(() => setIsGenerating(false), 2000);
-      return;
-    }
-
     setIsGenerating(true);
-    try {
-      const genAI = new GoogleGenAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      const prompt = `Write a one-sentence technical description for a real estate AI capability called "${title}". Focus on its impact on agent profitability and neural efficiency.`;
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
-      console.log("AI Optimized Description:", text);
-    } catch (error) {
-      console.error("AI Generation failed:", error);
-    } finally {
+    // Simulated AI Optimization
+    setTimeout(() => {
       setIsGenerating(false);
-    }
+      console.log("AI Simulation: Optimized capability parameters for", title);
+    }, 1500);
   };
 
   return (
@@ -679,33 +660,15 @@ function CapabilityCard({ icon, title, description, image }: { icon: React.React
 function ArchitectureCard({ icon, title, tag, description, link, image }: { icon: React.ReactNode, title: string, tag: string, description: string, link: string, image: string }) {
   const [isGenerating, setIsGenerating] = React.useState(false);
 
-  const handleRegenerate = async (e: React.MouseEvent) => {
+  const handleRegenerate = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
-    const apiKey = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
-    
-    if (!apiKey) {
-      console.warn("GEMINI_API_KEY not found. Falling back to simulation.");
-      setIsGenerating(true);
-      setTimeout(() => setIsGenerating(false), 2000);
-      return;
-    }
-
     setIsGenerating(true);
-    try {
-      const genAI = new GoogleGenAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      const prompt = `Write a short technical summary for a PropTech architecture called "${title}". Mention it's a ${tag}.`;
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
-      console.log("AI Optimized Summary:", text);
-    } catch (error) {
-      console.error("AI Generation failed:", error);
-    } finally {
+    // Simulated AI Optimization
+    setTimeout(() => {
       setIsGenerating(false);
-    }
+      console.log("AI Simulation: Optimized architecture pathway for", title);
+    }, 1500);
   };
 
   return (

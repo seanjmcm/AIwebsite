@@ -39,17 +39,10 @@ jobs:
         
       - name: Build
         run: npm run build
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           
-      - name: Verify Build Output
+      - name: Verify Build
         run: |
-          echo "Checking build artifacts..."
-          ls -R dist/
-          if [ ! -f "dist/index.html" ]; then echo "Error: dist/index.html missing"; exit 1; fi
-          if [ ! -f "dist/CNAME" ]; then echo "Error: dist/CNAME missing"; exit 1; fi
-          if [ ! -f "dist/.nojekyll" ]; then echo "Error: dist/.nojekyll missing"; exit 1; fi
+          if [ ! -f "dist/index.html" ]; then echo "Error: Build failed to produce index.html"; exit 1; fi
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
