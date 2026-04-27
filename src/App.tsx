@@ -624,7 +624,7 @@ function CapabilityCard({ icon, title, description, image }: { icon: React.React
       whileInView={{ opacity: 1 }}
       className="bg-app-surface p-12 hover:bg-app-surface/30 transition-all duration-500 group relative overflow-hidden"
     >
-      <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
+      <div className="absolute inset-0 z-0 opacity-10 md:opacity-0 md:group-hover:opacity-10 transition-opacity duration-1000">
         <img src={image} alt="" className={`w-full h-full object-cover filter grayscale ${isGenerating ? 'blur-sm animate-pulse' : ''}`} referrerPolicy="no-referrer" />
       </div>
       <div className="relative z-10 h-full flex flex-col">
