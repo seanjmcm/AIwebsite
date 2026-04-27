@@ -16,14 +16,18 @@ import {
   Network,
   Brain,
   ExternalLink,
-  FileText
+  FileText,
+  RefreshCw
 } from "lucide-react";
 
 const Logo = () => (
-  <div className="flex items-center space-x-3">
-    <div className="w-8 h-8 bg-accent clip-path-polygon-[50%_0,100%_50%,50%_100%,0_50%] shadow-[0_0_15px_rgba(197,160,89,0.3)]"></div>
+  <motion.div 
+    whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
+    className="flex items-center space-x-3 cursor-pointer group"
+  >
+    <div className="w-8 h-8 bg-accent clip-path-polygon-[50%_0,100%_50%,50%_100%,0_50%] shadow-[0_0_15px_rgba(197,160,89,0.3)] group-hover:shadow-accent/50 transition-all"></div>
     <span className="font-bold text-lg text-white tracking-[0.2em] uppercase">Most Marvellous</span>
-  </div>
+  </motion.div>
 );
 
 export default function App() {
@@ -112,13 +116,15 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-app-bg" />
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-app-bg z-10" />
+          
           <img 
-            src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-            alt="AI Powered Future Living" 
-            className="w-full h-full object-cover opacity-30"
+            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2000&q=80" 
+            alt="Generational Intelligence - Family Horizon" 
+            className="w-full h-full object-cover opacity-60 filter contrast-125 brightness-75 grayscale-[0.2] saturate-[1.2]"
           />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] mix-blend-screen animate-pulse pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,10 +139,10 @@ export default function App() {
               Applied Artificial Intelligence
             </div>
             <h1 className="text-5xl md:text-8xl font-light text-white leading-[1.1] mb-8 tracking-[-0.04em]">
-              Engineering <b className="font-bold text-accent italic">Future</b> Architectures.
+              Generational <b className="font-bold text-accent italic">Intelligence</b>.
             </h1>
             <p className="text-lg md:text-xl text-app-label mb-12 max-w-xl leading-relaxed font-light">
-              We deploy autonomous AI agents and build enterprise-grade neural solutions designed for cognitive scale.
+              Building AI that scales empathy, connection, and generational legacy. We engineer future-proof cognitive systems designed for the human experience.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <a href="#expertise" className="border border-accent bg-accent text-app-bg px-10 py-4 rounded-none font-bold text-[11px] uppercase tracking-[2px] hover:bg-transparent hover:text-accent transition-all duration-500 shadow-[0_0_30px_rgba(197,160,89,0.15)] flex items-center justify-center">
@@ -157,9 +163,9 @@ export default function App() {
           <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
             <div className="max-w-2xl">
               <span className="text-app-muted text-[10px] tracking-[5px] uppercase mb-4 block">Deployment Ready</span>
-              <h2 className="text-4xl font-bold text-white tracking-tight">System Capabilities.</h2>
+              <h2 className="text-4xl font-bold text-white tracking-tight">Generational Foundations.</h2>
               <p className="mt-6 text-app-label text-lg font-light">
-                Our infrastructure is optimized for high-density neural processing and autonomous decision making.
+                Our infrastructure is optimized for human-centric intelligence and long-term legacy safeguarding.
               </p>
             </div>
             <div className="text-accent font-mono text-[11px] tracking-widest hidden lg:block uppercase">
@@ -172,21 +178,25 @@ export default function App() {
               icon={<Cpu className="w-6 h-6" />}
               title="TensorFlow Core"
               description="Custom multilayer neural networks designed for ultra-low latency prediction."
+              image="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
             />
             <CapabilityCard 
               icon={<Users className="w-6 h-6" />}
-              title="Agentic Swarms"
-              description="Orchestrating multi-agent cognitive systems via specialized prompt architectures."
+              title="Cognitive Harmony"
+              description="Orchestrating human-AI systems designed to augment intuition and emotional connection."
+              image="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80"
             />
             <CapabilityCard 
               icon={<Eye className="w-6 h-6" />}
               title="Semantic Vision"
               description="Real-time multi-object detection and semantic segmentation at the edge."
+              image="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&fit=crop&w=800&q=80"
             />
             <CapabilityCard 
               icon={<Zap className="w-6 h-6" />}
               title="MLOps / CICD"
               description="Automated model lifecycle management and continuous weight optimization."
+              image="https://images.unsplash.com/photo-1451187530220-4e2a1a445d33?auto=format&fit=crop&w=800&q=80"
             />
           </div>
         </div>
@@ -291,24 +301,27 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ArchitectureCard 
               icon={<Network className="w-6 h-6" />}
-              title="Aegis-7 Swarm Latency"
+              title="Aegis-7 Cognitive Swarms"
               tag="Research Paper // 2026"
-              description="A deep dive into reducing inter-agent communication overhead in decentralized cognitive swarms using semantic compression."
-              link="#"
+              description="Performance analysis of decentralized inter-agent protocols. Achieved 40% reduction in token latency and 99.9% consistency across 100+ parallel nodes in simulation."
+              link="/case-study/aegis-7"
+              image="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80"
             />
             <ArchitectureCard 
               icon={<Brain className="w-6 h-6" />}
-              title="Adaptive Weights v2"
+              title="Neural Legal Intelligence"
               tag="Case Study // Legal"
-              description="How our dynamic weight adjustment protocols handled 1.2M document vectorizations with 99.8% precision for global legal firms."
-              link="#"
+              description="Implemented dynamic RAG optimization for global legal audits. Automated 1.2M document reviews with 95% faster processing time compared to human junior associates."
+              link="/case-study/legal-neural"
+              image="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80"
             />
             <ArchitectureCard 
               icon={<FileText className="w-6 h-6" />}
-              title="Mythos Guard Specs"
+              title="Mythos Containment Protocol"
               tag="Technical Documentation"
-              description="The architectural blueprint behind the containment protocols that manage emergent behaviors in ultra-large scale models."
-              link="#"
+              description="Detailed breakdown of the Sector 7 containment event. Developed neural firewalls that isolated emergent logic loops within 2ms of detection."
+              link="/case-study/mythos-containment"
+              image="https://images.unsplash.com/photo-1614728263952-84ea206f99b6?auto=format&fit=crop&w=800&q=80"
             />
           </div>
         </div>
@@ -323,9 +336,9 @@ export default function App() {
                 <div className="absolute -inset-1 bg-accent/20 rounded-none blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative border border-app-border overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
-                    alt="The Collective Team - Wicklow Lab" 
-                    className="w-full h-[500px] object-cover filter grayscale contrast-125 opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" 
+                    alt="The Collective Team - Neural Labs" 
+                    className="w-full h-[500px] object-cover filter grayscale contrast-125 opacity-90 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-app-bg/80 via-transparent to-transparent"></div>
                   <div className="absolute bottom-6 left-6 flex items-center space-x-3">
@@ -575,7 +588,7 @@ export default function App() {
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#c5a059]"></div>
-                <span className="text-[11px] font-bold text-app-muted tracking-[2px] uppercase">System Status: Alert Level RED</span>
+                <span className="text-[11px] font-bold text-app-muted tracking-[2px] uppercase">System Status: Guarding Legacy</span>
               </div>
               <div className="hidden lg:flex items-center space-x-6 text-[10px] text-app-muted font-mono uppercase tracking-widest border-l border-app-border pl-6">
                 <span>LAT: 53.031</span>
@@ -594,39 +607,97 @@ export default function App() {
   );
 }
 
-function CapabilityCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
+function CapabilityCard({ icon, title, description, image }: { icon: React.ReactNode, title: string, description: string, image: string }) {
+  const [isGenerating, setIsGenerating] = React.useState(false);
+
+  const handleRegenerate = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsGenerating(true);
+    // In a real implementation with a backend, this would call the Imagen API
+    setTimeout(() => setIsGenerating(false), 2000);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      className="bg-app-surface p-12 hover:bg-app-surface/50 transition-all duration-500 group"
+      className="bg-app-surface p-12 hover:bg-app-surface/30 transition-all duration-500 group relative overflow-hidden"
     >
-      <div className="text-accent mb-10 group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100">
-        {icon}
+      <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
+        <img src={image} alt="" className={`w-full h-full object-cover filter grayscale ${isGenerating ? 'blur-sm animate-pulse' : ''}`} referrerPolicy="no-referrer" />
       </div>
-      <h3 className="text-lg font-bold text-white mb-4 tracking-tight uppercase tracking-[2px]">{title}</h3>
-      <p className="text-app-label text-sm leading-relaxed font-light">{description}</p>
+      <div className="relative z-10 h-full flex flex-col">
+        <div className="flex justify-between items-start mb-10">
+          <div className="text-accent group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100">
+            {icon}
+          </div>
+          <button 
+            onClick={handleRegenerate}
+            disabled={isGenerating}
+            className="p-2 border border-accent/20 text-accent/40 hover:text-accent hover:border-accent transition-all duration-300 opacity-0 group-hover:opacity-100"
+            title="Regenerate with AI"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${isGenerating ? 'animate-spin' : ''}`} />
+          </button>
+        </div>
+        <h3 className="text-lg font-bold text-white mb-4 tracking-tight uppercase tracking-[2px]">{title}</h3>
+        <p className="text-app-label text-sm leading-relaxed font-light">{description}</p>
+        
+        {isGenerating && (
+          <div className="mt-4 text-[9px] text-accent font-mono uppercase tracking-widest animate-pulse">
+            Re-initializing Neural Weights...
+          </div>
+        )}
+      </div>
     </motion.div>
   );
 }
 
-function ArchitectureCard({ icon, title, tag, description, link }: { icon: React.ReactNode, title: string, tag: string, description: string, link: string }) {
+function ArchitectureCard({ icon, title, tag, description, link, image }: { icon: React.ReactNode, title: string, tag: string, description: string, link: string, image: string }) {
+  const [isGenerating, setIsGenerating] = React.useState(false);
+
+  const handleRegenerate = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsGenerating(true);
+    setTimeout(() => setIsGenerating(false), 2000);
+  };
+
   return (
     <motion.a 
       href={link}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      className="bg-app-bg p-10 border border-app-border hover:border-accent transition-all duration-500 group flex flex-col h-full"
+      className="bg-app-bg border border-app-border hover:border-accent transition-all duration-500 group flex flex-col h-full overflow-hidden relative"
     >
-      <div className="text-app-muted mb-8 group-hover:text-accent transition-colors duration-500">
-        {icon}
+      <div className="h-48 overflow-hidden border-b border-app-border relative">
+        <img 
+          src={image} 
+          alt={title} 
+          className={`w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ${isGenerating ? 'blur-md animate-pulse' : ''}`} 
+          referrerPolicy="no-referrer"
+        />
+        <button 
+          onClick={handleRegenerate}
+          disabled={isGenerating}
+          className="absolute top-4 right-4 z-20 p-2 bg-app-bg/80 border border-accent/20 text-accent/40 hover:text-accent hover:border-accent transition-all duration-300 opacity-0 group-hover:opacity-100"
+          title="Regenerate with AI"
+        >
+          <RefreshCw className={`w-3.5 h-3.5 ${isGenerating ? 'animate-spin' : ''}`} />
+        </button>
       </div>
-      <div className="text-[10px] text-accent font-bold tracking-[3px] uppercase mb-4">{tag}</div>
-      <h3 className="text-xl font-bold text-white mb-4 tracking-tight group-hover:translate-x-1 transition-transform">{title}</h3>
-      <p className="text-app-label text-sm leading-relaxed font-light mb-auto">{description}</p>
-      <div className="mt-8 flex items-center text-[10px] text-app-muted uppercase font-bold tracking-widest group-hover:text-white transition-colors">
-        Read Documentation
-        <ExternalLink className="ml-2 w-3 h-3" />
+      <div className="p-10 flex-grow flex flex-col">
+        <div className="text-app-muted mb-8 group-hover:text-accent transition-colors duration-500">
+          {icon}
+        </div>
+        <div className="text-[10px] text-accent font-bold tracking-[3px] uppercase mb-4">{tag}</div>
+        <h3 className="text-xl font-bold text-white mb-4 tracking-tight group-hover:translate-x-1 transition-transform">{title}</h3>
+        <p className="text-app-label text-sm leading-relaxed font-light mb-auto">{description}</p>
+        <div className="mt-8 flex items-center text-[10px] text-app-muted uppercase font-bold tracking-widest group-hover:text-white transition-colors">
+          {isGenerating ? 'Optimizing Architecture...' : 'Read Documentation'}
+          {!isGenerating && <ExternalLink className="ml-2 w-3 h-3" />}
+        </div>
       </div>
     </motion.a>
   );
