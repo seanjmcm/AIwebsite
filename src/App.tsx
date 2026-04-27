@@ -120,9 +120,9 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-app-bg z-10" />
           
           <img 
-            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2000&q=80" 
-            alt="Generational Intelligence - Family Horizon" 
-            className="w-full h-full object-cover opacity-60 filter contrast-125 brightness-75 grayscale-[0.2] saturate-[1.2]"
+            src="/horizon.png" 
+            alt="PropTech Intelligence - Real Estate Horizon" 
+            className="w-full h-full object-cover opacity-70 filter contrast-125 brightness-95 grayscale-[0.05] saturate-[1.1]"
           />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] mix-blend-screen animate-pulse pointer-events-none" />
         </div>
@@ -139,10 +139,10 @@ export default function App() {
               Applied Artificial Intelligence
             </div>
             <h1 className="text-5xl md:text-8xl font-light text-white leading-[1.1] mb-8 tracking-[-0.04em]">
-              Generational <b className="font-bold text-accent italic">Intelligence</b>.
+              Real Estate <b className="font-bold text-accent italic">Agentic Agents</b>.
             </h1>
             <p className="text-lg md:text-xl text-app-label mb-12 max-w-xl leading-relaxed font-light">
-              Building AI that scales empathy, connection, and generational legacy. We engineer future-proof cognitive systems designed for the human experience.
+              Empowering estate agents with neural networks and autonomous AI. We improve lives by streamlining property sales while accelerating the bottom line for modern enterprises.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <a href="#expertise" className="border border-accent bg-accent text-app-bg px-10 py-4 rounded-none font-bold text-[11px] uppercase tracking-[2px] hover:bg-transparent hover:text-accent transition-all duration-500 shadow-[0_0_30px_rgba(197,160,89,0.15)] flex items-center justify-center">
@@ -163,9 +163,9 @@ export default function App() {
           <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
             <div className="max-w-2xl">
               <span className="text-app-muted text-[10px] tracking-[5px] uppercase mb-4 block">Deployment Ready</span>
-              <h2 className="text-4xl font-bold text-white tracking-tight">Generational Foundations.</h2>
+              <h2 className="text-4xl font-bold text-white tracking-tight">Real Estate Foundations.</h2>
               <p className="mt-6 text-app-label text-lg font-light">
-                Our infrastructure is optimized for human-centric intelligence and long-term legacy safeguarding.
+                Our infrastructure is optimized for property-centric intelligence and long-term corporate profitability.
               </p>
             </div>
             <div className="text-accent font-mono text-[11px] tracking-widest hidden lg:block uppercase">
@@ -227,9 +227,9 @@ export default function App() {
                 </div>
                 <div className="text-[10px] text-app-muted font-mono tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">DOMAIN: LEGAL_TECH</div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-6">Legal Intelligence</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Market Intelligence</h3>
               <p className="text-app-label leading-relaxed mb-8 font-light">
-                Autonomous contract auditing that doesn't just find keywords, but understands <i className="text-white">semantic risk</i>. From case law cross-referencing to predictive litigation outcomes, we're making the "legal eagle" a digital reality.
+                Predictive analytics for commercial and residential sectors. Our neural networks analyze thousands of data points to forecast market trends and optimize property yields for institutional investors.
               </p>
               <ul className="space-y-3 text-sm text-app-muted border-t border-app-border pt-8">
                 <li className="flex items-center space-x-3 italic">
@@ -256,9 +256,9 @@ export default function App() {
                 </div>
                 <div className="text-[10px] text-app-muted font-mono tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">DOMAIN: PROP_TECH</div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-6">Estate Agent Dynamics</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Agent Empowerment</h3>
               <p className="text-app-label leading-relaxed mb-8 font-light">
-                Why just list a home when you can predict its <i className="text-white">lifestyle resonance</i>? Our agents perform autonomous valuations based on local sentiment and hyper-specific market shifts, while AI concierge bots handle lead qualification 24/7.
+                Improving the professional lives of estate agents by automating lead qualification and scheduling. Our AI agents handle the noise so agents can focus on closing properties and driving the bottom line.
               </p>
               <ul className="space-y-3 text-sm text-app-muted border-t border-app-border pt-8">
                 <li className="flex items-center space-x-3 italic">
@@ -309,11 +309,11 @@ export default function App() {
             />
             <ArchitectureCard 
               icon={<Brain className="w-6 h-6" />}
-              title="Neural Legal Intelligence"
-              tag="Case Study // Legal"
-              description="Implemented dynamic RAG optimization for global legal audits. Automated 1.2M document reviews with 95% faster processing time compared to human junior associates."
-              link="/case-study/legal-neural"
-              image="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80"
+              title="Neural Property Intelligence"
+              tag="Case Study // Real Estate"
+              description="Implemented dynamic predictive models for UK residential markets. Automated property valuations with 98% accuracy compared to senior chartered surveyors."
+              link="/case-study/property-neural"
+              image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80"
             />
             <ArchitectureCard 
               icon={<FileText className="w-6 h-6" />}
@@ -336,7 +336,7 @@ export default function App() {
                 <div className="absolute -inset-1 bg-accent/20 rounded-none blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative border border-app-border overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" 
+                    src="/team.png" 
                     alt="The Collective Team - Neural Labs" 
                     className="w-full h-[500px] object-cover filter grayscale contrast-125 opacity-90 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
                   />
@@ -588,7 +588,7 @@ export default function App() {
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#c5a059]"></div>
-                <span className="text-[11px] font-bold text-app-muted tracking-[2px] uppercase">System Status: Guarding Legacy</span>
+                <span className="text-[11px] font-bold text-app-muted tracking-[2px] uppercase">System Status: Optimizing Yields</span>
               </div>
               <div className="hidden lg:flex items-center space-x-6 text-[10px] text-app-muted font-mono uppercase tracking-widest border-l border-app-border pl-6">
                 <span>LAT: 53.031</span>
