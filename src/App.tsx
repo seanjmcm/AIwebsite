@@ -1,4 +1,4 @@
-// Build Trigger: Production Deploy for mostmarv.com boo!
+// Build Trigger: Production Deploy for mostmarv.com - Verification active
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { 
