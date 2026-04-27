@@ -10,7 +10,8 @@ This is a clean, professional website built with plain HTML, CSS, and JavaScript
 ## Features
 - **High Design**: Futuristic PropTech aesthetic.
 - **Responsive**: Optimised for Desktop and Mobile.
-- **Zero Dependencies**: Works instantly without Node.js or complex setup.
+- **Zero Dependencies**: Built with plain HTML and CSS. No React or Tailwind required.
+- **Fast Performance**: Self-contained file with no external CSS frameworks to load.
 
 ## Files
 - `index.html` - The full website and logic.
