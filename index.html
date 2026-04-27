@@ -679,8 +679,28 @@
                     <div style="position: relative;" class="group">
                         <div style="position: absolute; inset: -0.25rem; background: rgba(197, 160, 89, 0.2); blur: 1rem; opacity: 0.25; transition: opacity 1s;" class="group-hover:opacity-100"></div>
                         <div style="position: relative; border: 1px solid var(--app-border); overflow: hidden; background: var(--app-bg);">
-                            <img src="team.png" alt="PropTech Team" style="width: 100%; height: 500px; object-fit: cover; filter: grayscale(100%) contrast(1.25); opacity: 0.9; transition: all 0.7s;" class="group-hover:grayscale-0 group-hover:opacity-100">
-                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 10, 12, 0.8), transparent);"></div>
+                            <style>
+                                @keyframes kenburns {
+                                    0% { transform: scale(1); }
+                                    50% { transform: scale(1.08); }
+                                    100% { transform: scale(1); }
+                                }
+                                .team-img {
+                                    width: 100%; 
+                                    height: 500px; 
+                                    object-fit: cover; 
+                                    filter: grayscale(100%) contrast(1.1) brightness(0.9); 
+                                    transition: filter 0.8s ease, transform 0.8s ease;
+                                    animation: kenburns 30s ease-in-out infinite;
+                                }
+                                .group:hover .team-img {
+                                    filter: grayscale(0%) contrast(1.1) brightness(1);
+                                    transform: scale(1.1);
+                                    animation-play-state: paused;
+                                }
+                            </style>
+                            <img src="team.png" alt="PropTech Team" class="team-img">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 10, 12, 0.8), transparent); pointer-events: none;"></div>
                             <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
                                 <div style="width: 0.375rem; height: 0.375rem; background: var(--accent); border-radius: 50%;" class="animate-ping"></div>
                                 <span class="text-accent uppercase font-monospace" style="font-size: 10px; letter-spacing: 3px;">Active Session: Neural Sync</span>
@@ -726,14 +746,14 @@
                             <p class="text-app-label" style="line-height: 1.6;">
                                 Ash Ridge Green,<br>
                                 Enniskerry, Co. Wicklow<br>
-                                A98 Irish Innovation Sector
+                                A98 P7 N2
                             </p>
                         </div>
                     </div>
                 </div>
                 <div style="grid-column: span 2; position: relative;">
-                    <div style="background: var(--app-surface); padding: 0.25rem; border: 1px solid var(--app-border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
-                        <div style="width: 100%; height: 450px; filter: grayscale(100%) invert(100%) contrast(1.1); opacity: 0.3;">
+                    <div style="background: var(--app-surface); padding: 0.15rem; border: 1px solid var(--accent); box-shadow: 0 0 25px rgba(197, 160, 89, 0.1);">
+                        <div style="width: 100%; height: 450px; filter: grayscale(0.2) sepia(1) hue-rotate(-15deg) saturate(2) brightness(0.9) contrast(1.1); opacity: 0.9; border: 1px solid var(--app-border);">
                             <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://maps.google.com/maps?width=100%25&height=450&hl=en&q=Ash%20Ridge%20Green,%20Enniskerry,%20Co.%20Wicklow&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
                         </div>
                     </div>
