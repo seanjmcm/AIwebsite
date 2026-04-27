@@ -732,6 +732,153 @@ footer {
 }
 
 
+/* Form Validation & GDPR States */
+.form-field {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input.invalid {
+    border-color: #ff4444;
+}
+
+.error-message {
+    position: absolute;
+    bottom: -1.2rem;
+    left: 0;
+    font-size: 9px;
+    color: #ff4444;
+    text-transform: uppercase;
+    font-family: monospace;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.input.invalid + .error-message {
+    opacity: 1;
+}
+
+.gdpr-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.gdpr-checkbox {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--app-border);
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.gdpr-checkbox:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.gdpr-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--app-bg);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.gdpr-text {
+    font-size: 11px;
+    color: var(--app-label);
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.gdpr-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Cookie Consent Banner */
+#cookieConsent {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    max-width: 450px;
+    background: var(--app-bg);
+    border: 1px solid var(--app-border);
+    padding: 1.5rem;
+    z-index: 1000;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    display: none;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.cookie-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cookie-text {
+    font-size: 13px;
+    color: var(--app-label);
+    line-height: 1.6;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.cookie-btn {
+    padding: 0.5rem 1rem;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cookie-btn-accept {
+    background: var(--accent);
+    color: var(--app-bg);
+    border: none;
+}
+
+.cookie-btn-accept:hover {
+    filter: brightness(1.1);
+}
+
+.cookie-btn-decline {
+    background: transparent;
+    color: var(--app-muted);
+    border: 1px solid var(--app-border);
+}
+
+.cookie-btn-decline:hover {
+    color: var(--white);
+    border-color: var(--app-muted);
+}
+
 .group:hover .team-img {
     filter: grayscale(0%) contrast(1.1) brightness(1);
     transform: scale(1.1);

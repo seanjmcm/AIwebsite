@@ -353,21 +353,31 @@
                         <div class="form-group form-group-2">
                             <div class="form-field">
                                 <label class="form-label">Personnel Name</label>
-                                <input type="text" required placeholder="Identify yourself" class="input">
+                                <input type="text" name="name" required placeholder="Identify yourself" class="input" id="inputName">
+                                <span class="error-message" id="errorName">// IDENTITY_REQUIRED</span>
                             </div>
                             <div class="form-field">
                                 <label class="form-label">Neural Address</label>
-                                <input type="email" required placeholder="email@provider.com" class="input">
+                                <input type="email" name="email" required placeholder="email@provider.com" class="input" id="inputEmail">
+                                <span class="error-message" id="errorEmail">// INVALID_ADDRESS_PROTOCOL</span>
                             </div>
                         </div>
-                        <div class="form-field" style="margin-bottom: 1.5rem;">
+                        <div class="form-field">
                             <label class="form-label">Data Payload</label>
-                            <textarea required placeholder="Detail your requirements..." class="input textarea"></textarea>
+                            <textarea name="message" required placeholder="Detail your requirements..." class="input textarea" id="inputMessage"></textarea>
+                            <span class="error-message" id="errorMessage">// PAYLOAD_EMPTY</span>
                         </div>
+                        <label class="gdpr-container">
+                            <input type="checkbox" required class="gdpr-checkbox" id="inputGdpr">
+                            <span class="gdpr-text">
+                                I acknowledge the <a href="#" class="gdpr-link">Neural Processing Agreement</a> and consent to the storage of my data payload for communications.
+                            </span>
+                        </label>
                         <button type="submit" class="btn btn-accent group" style="width: 100%; gap: 0.75rem;">
                             <span>Execute Transmission</span>
                             <i data-lucide="arrow-right" class="group-hover-arrow" style="width: 1rem; height: 1rem; transition: transform 0.3s;"></i>
                         </button>
+                        <div id="formStatus" class="text-accent uppercase font-monospace" style="margin-top: 1.5rem; font-size: 11px; letter-spacing: 1px; display: none; text-align: center;"></div>
                     </form>
                 </div>
             </div>
@@ -381,24 +391,122 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent">
+        <div class="cookie-content">
+            <div class="text-accent font-monospace" style="font-size: 10px; letter-spacing: 2px;">// PRIVACY_PROTOCOL_DETECTION</div>
+            <p class="cookie-text">
+                This station utilizes cryptographic data fragments (cookies) to optimize your neural connection and analyze enterprise traffic.
+            </p>
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Accept Protocol</button>
+                <button class="cookie-btn cookie-btn-decline" id="declineCookies">Diminish Session</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Simple form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Cookie Consent Logic
+        window.addEventListener('DOMContentLoaded', () => {
+            const cookieBanner = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const declineBtn = document.getElementById('declineCookies');
+
+            if (!localStorage.getItem('neural_consent')) {
+                setTimeout(() => {
+                    cookieBanner.style.display = 'block';
+                }, 2000);
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('neural_consent', 'accepted');
+                cookieBanner.style.opacity = '0';
+                setTimeout(() => cookieBanner.style.display = 'none', 500);
+            });
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('neural_consent', 'declined');
+                cookieBanner.style.opacity = '0';
+                setTimeout(() => cookieBanner.style.display = 'none', 500);
+            });
+        });
+
+        // Form handling with real-time validation
+        const contactForm = document.getElementById('contactForm');
+        const inputs = {
+            name: document.getElementById('inputName'),
+            email: document.getElementById('inputEmail'),
+            message: document.getElementById('inputMessage'),
+            gdpr: document.getElementById('inputGdpr')
+        };
+
+        const validateField = (name, value) => {
+            let isValid = true;
+            if (name === 'name') {
+                isValid = value.trim().length >= 2;
+            } else if (name === 'email') {
+                isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            } else if (name === 'message') {
+                isValid = value.trim().length >= 10;
+            }
+            
+            const field = inputs[name];
+            if (!isValid && value.length > 0) {
+                field.classList.add('invalid');
+            } else {
+                field.classList.remove('invalid');
+            }
+            return isValid;
+        };
+
+        // Add real-time listeners
+        Object.keys(inputs).forEach(key => {
+            if (key === 'gdpr') return;
+            inputs[key].addEventListener('input', (e) => {
+                validateField(key, e.target.value);
+            });
+            // Blur effect to catch empty required fields
+            inputs[key].addEventListener('blur', (e) => {
+                if (e.target.value.length === 0) {
+                    e.target.classList.add('invalid');
+                }
+            });
+        });
+
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const icon = btn.querySelector('.group-hover-arrow');
+            
+            const nameValid = validateField('name', inputs.name.value);
+            const emailValid = validateField('email', inputs.email.value);
+            const messageValid = validateField('message', inputs.message.value);
+            const gdprValid = inputs.gdpr.checked;
+
+            if (!nameValid || !emailValid || !messageValid || !gdprValid) {
+                if (!gdprValid) {
+                    alert('CRITICAL: Consent protocol must be acknowledged before transmission.');
+                }
+                return;
+            }
+
+            const btn = contactForm.querySelector('button');
+            const status = document.getElementById('formStatus');
             const originalText = btn.innerHTML;
+            
             btn.innerHTML = '<span>Syncing...</span>';
             btn.disabled = true;
+            status.style.display = 'none';
             
             setTimeout(() => {
-                alert('Transmission Received. The lab will process your data payload shortly.');
+                status.textContent = '// TRANSMISSION RECEIVED: PAYLOAD LOGGED';
+                status.style.display = 'block';
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-                e.target.reset();
+                contactForm.reset();
+                // Reset visual states
+                Object.values(inputs).forEach(input => input.classList.remove('invalid'));
                 // Re-initialize icons as the innerHTML was reset
                 lucide.createIcons();
             }, 1000);
