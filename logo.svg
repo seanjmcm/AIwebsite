@@ -1,0 +1,10 @@
+<svg width="240" height="60" viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background for visibility context (optional, SVG is transparent) -->
+  <!-- <rect width="240" height="60" fill="#0a0a0c"/> -->
+  
+  <!-- Diamond Icon -->
+  <path d="M30 14L46 30L30 46L14 30L30 14Z" fill="#c5a059"/>
+  
+  <!-- "Most Marvellous" Text -->
+  <text x="62" y="37" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="18" letter-spacing="-0.02em">Most Marvellous</text>
+</svg>

@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "PropTech Intelligence Site",
   "scripts": {
-    "dev": "npx serve -p 3000 ."
+    "dev": "npx serve -p 3000 .",
+    "build": "mkdir -p dist && cp index.html horizon.png team.png dist/",
+    "lint": "ls index.html"
   }
 }
